@@ -7,6 +7,10 @@ require 'sinatra/activerecord'
 set :database, "sqlite3:barbershop.db"
 
 class Client < ActiveRecord::Base
+	validates :name, presence: true
+	validates :phone, presence: true
+	validates :datestamp, presence: true
+	validates :color, presence: true
 end
 
 class Barber < ActiveRecord::Base
@@ -38,8 +42,7 @@ get '/contacts' do
 end
 
 post '/contacts' do
-	@usermail = params['usermail']
-	@message = params['message_area']
+	
 
 
 end
